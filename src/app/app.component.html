@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="container-in">
+    <ul class="comment-list-ul">
+      <li *ngFor="let item of commentsArray; let a = index">
+        <div class="commentbox">
+          {{item.length}}
+          <div class="float-right"><button class="reply-btn"><span class="material-icons">
+                reply
+              </span>Replay</button></div>
+          <div class="float-left"><span class="profile-image"><img src="{{item.prflPic}}" alt=""></span><span
+              class="commentor-name">{{item.commentorName}}</span></div>
+          <div class="clear-float"></div>
+          <div class="comment-div">
+            {{item.message}}</div>
+          <div class="text-right"><button (click)="showSubcomments(a)" class="view-comments"
+              *ngIf="item?.subcomments?.length>0"><span class="material-icons-outlined">
+                expand_more
+              </span>View Comments
+            </button></div>
+
+        </div>
+
+        <ul *ngIf="item.isToDisplay">
+          <li *ngFor="let subItem of item.subcomments; let i = index">
+
+            <div class="commentbox">
+              <div *ngIf="!subItem.isEditable">
+                <div class="float-right"><button (click)="openreplayform(a)" class="reply-btn"
+                    *ngIf="!subItem.isCommentYours"><span class="material-icons">
+                      reply
+                    </span>Replay</button><button class="reply-btn delete-btn text-danger"
+                    (click)="deleteComments(a, i)" *ngIf="subItem.isCommentYours"><span class="material-icons">
+                      delete
+                    </span>Delete</button>
+                  <button class="reply-btn" (click)="editdata(a, i)" *ngIf="subItem.isCommentYours"><span
+                      class="material-icons">
+                      edit
+                    </span>Edit</button></div>
+                <div class="float-left"><span class="profile-image"><img src="{{item.prflPic}}" alt=""></span><span
+                    class="commentor-name">{{subItem.commentorName}}</span></div>
+                <div class="clear-float"></div>
+                <div class="comment-div">{{subItem.message}}</div>
+              </div>
+              <form [formGroup]="editcommentForm" (ngSubmit)="onSubmitEdit(a, i)" *ngIf="subItem.isEditable">
+                <div class="commentbox p-0 edit-form">
+                  <div class="float-left"><span class="profile-image"><img src="{{item.prflPic}}" alt=""></span><span
+                      class="commentor-name">{{subItem.commentorName}}</span></div>
+                  <div class="clear-float"></div>
+                  <div class="text-area-wrap"> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                      formControlName="usercomment" [(ngModel)]="subItem.message"></textarea></div>
+                  <button type="submit" class="submit-reply">Reply</button>
+
+                </div>
+              </form>
+            </div>
+          </li>
+          <form [formGroup]="commentForm" (ngSubmit)="onSubmit(a)" *ngIf="item.isFormDisplay">
+            <div class="commentbox edit-form">
+              <div class="float-left"><span class="profile-image"><img src="{{item.prflPic}}" alt=""></span><span
+                  class="commentor-name">Tester Name</span></div>
+              <div class="text-area-wrap"> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                  formControlName="usercomment"></textarea></div>
+              <button type="submit" class="submit-reply">Reply</button>
+
+            </div>
+          </form>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

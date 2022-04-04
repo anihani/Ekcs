@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'material-icons/iconfont/material-icons.css';
+
+
+body{
+    background: #f5f6fa;
+}
+ul{
+    margin: 0;
+    padding: 0px;
+}
+ul li{
+    list-style-type: none;
+}
+.float-right{
+    float: right;
+}
+.clear-float{
+    clear: both;
+}
+.material-icons{
+    vertical-align: top;
+font-size: 18px;
+margin-right: 3px;
+line-height: 18px;
+margin-top: 3px;
+}

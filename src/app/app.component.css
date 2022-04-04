@@ -1,0 +1,147 @@
+.container-in {
+  max-width: 1024px;
+  margin: 0px auto;
+  background: #f5f6fa;
+  padding: 3% 8%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.commentbox {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.comment-list-ul ul {
+  padding-left: 50px;
+  position: relative;
+}
+
+.comment-list-ul ul::before {
+  width: 2px;
+  content: "";
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: 30px;
+  background: #d6d7f1;
+  height: calc(100% + 40px);
+
+}
+
+.view-comments {
+  background: none;
+  font-weight: 600;
+  border: none;
+  color: #615a9c;
+  margin-top: 20px;
+  display: inline-block;
+
+}
+
+.view-comments .material-icons-outlined {
+  vertical-align: top;
+  padding-top: 1px;
+  padding-right: 2px;
+}
+
+.reply-btn {
+  font-weight: 600;
+  background: none;
+  border: 0;
+  color: #615a9c;
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+
+
+.commentor-name {
+  font-weight: 700;
+  margin-top: 10px;
+  display: inline-block;
+  color: #43494d;
+}
+
+.profile-image img {
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.edit-form textarea {
+
+  border: 1px solid #d4d7e2;
+  padding: 10px;
+  height: 140px;
+  border-radius: 10px;
+}
+
+.comment-div {
+  margin-left: 45px;
+  
+}
+
+.text-area-wrap {
+  width: calc(100% - 114px);
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.submit-reply{
+	background: #615a9c;
+	padding: 5px 10px;
+	border-radius: 10px;
+	margin-left: 15px;
+	color: #fff;
+	/* border-radius: 0px; */
+	border: 0px;
+	width: 99px;
+	/* display: flex; */
+	align-content: center;
+	align-items: center;
+	font-weight: 600;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 767px) {
+  .container-in{
+    padding: 3%;
+  }
+  .comment-list-ul ul::before {
+    
+    left: 20px;
+    
+  }
+  .comment-list-ul ul{
+    padding-left: 40px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .text-area-wrap{
+    width:100%;
+  }
+  .submit-reply{
+    margin-left: 0;
+  }
+  .comment-list-ul ul::before {
+    
+    left: 10px;
+    
+  }
+  .comment-list-ul ul{
+    padding-left: 20px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container-in{
+    padding: 15px 0px;
+  }
+  .comment-div{
+    margin: 10px 0px;
+  }
+}
