@@ -76,17 +76,23 @@ export class AppComponent {
 
   });
   ngOnInit() {
-    localStorage.setItem('commentsList', JSON.stringify(this.comments))
-  
+    if (localStorage.getItem('commentsList') === null) {
+      localStorage.setItem('commentsList', JSON.stringify(this.comments));
+      this.commentsArray = JSON.parse(localStorage.getItem('commentsList') || '{}');
+    } else {
       // localStorage.setItem('commentsList', JSON.stringify(this.comments));
       this.commentsArray = JSON.parse(localStorage.getItem('commentsList') || '{}');
       console.log(this.commentsArray)
       // this.commentsArray = JSON.parse(JSON.stringify(this.comments));
-      this.commentsArray.forEach((element: any) => {
-        element.isToDisplay = false;
-        element.isFormDisplay = false;
-      });
-    
+
+    }
+    this.commentsArray.forEach((element: any) => {
+      element.isToDisplay = false;
+      element.isFormDisplay = false;
+    });
+
+
+
   }
   showSubcomments(index: any) {
 
